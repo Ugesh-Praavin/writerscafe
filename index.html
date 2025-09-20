@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writer's Café | Literary Haven in Chennai</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #000000;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-subtitle {
+            font-size: 0.7rem;
+            font-weight: 400;
+            opacity: 0.8;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.5));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2047&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+        }
+
+        .hero-content {
+            color: #ffffff;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1.2s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-logo {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-logo img {
+            height: 120px;
+            width: auto;
+            filter: grayscale(100%) brightness(2);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: -2px;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            color: #000000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+        }
+
+        /* Sections */
+        .section {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #ffffff;
+            position: relative;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), transparent);
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #111111, #000000);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-weight: 400;
+            color: #ffffff;
+        }
+
+        .about-text p {
+            margin-bottom: 2rem;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            height: 500px;
+            background: url('https://images.unsplash.com/photo-1521017432531-fbd92d768814?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80') center/cover;
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.4s ease;
+        }
+
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), transparent);
+        }
+
+        /* Menu Section */
+        .menu {
+            background: #000000;
+        }
+
+        .menu-intro {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 5rem auto;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .menu-card {
+            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.3));
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .menu-card h3 {
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .item-name {
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .item-price {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: linear-gradient(135deg, #111111, #000000);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Location Section */
+        .location {
+            background: #000000;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .location-info {
+            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .location-info h3 {
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .contact-item strong {
+            color: #ffffff;
+            min-width: 100px;
+        }
+
+        .map-container {
+            position: relative;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80') center/cover;
+            cursor: pointer;
+            transition: transform 0.4s ease;
+        }
+
+        .map-container:hover {
+            transform: scale(1.02);
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.2rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a, #000000);
+            color: #ffffff;
+            text-align: center;
+            padding: 4rem 5%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 10px;
+            opacity: 0.9;
+        }
+
+        .footer-logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-logo-text h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .footer-logo-text p {
+            font-size: 0.8rem;
+            margin: 0;
+            opacity: 0.7;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 300;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .logo {
+                gap: 0.5rem;
+            }
+
+            .logo img {
+                height: 35px;
+            }
+
+            .logo-text {
+                font-size: 1.5rem;
+            }
+
+            .logo-subtitle {
+                font-size: 0.6rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-logo {
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .hero-logo img {
+                height: 80px;
+            }
+
+            .about-content,
+            .location-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .section {
+                padding: 5rem 5%;
+            }
+
+            .section h2 {
+                font-size: 2.5rem;
+            }
+
+            .menu-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                transform: none;
+                height: 300px;
+            }
+
+            .footer-logo {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .footer-logo img {
+                height: 40px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#home" class="logo">
+                <img src="logo.jpg" alt="Writer's Café Logo">
+                <div class="logo-text">
+                    <span>Writer's Café</span>
+                    <span class="logo-subtitle">Chennai</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#location">Location</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-logo">
+            <img src="logo.jpg" alt="Writer's Café Logo">
+        </div>
+        <div class="hero-content">
+            <h1>Writer's Café</h1>
+            <p>Where Stories Brew & Dreams Take Flight</p>
+            <p>A literary sanctuary in the heart of Chennai, serving inspiration alongside exceptional coffee</p>
+            <a href="#menu" class="cta-button">Explore Our Menu</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about fade-in">
+        <h2>Our Story</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Nestled in the vibrant heart of Chennai, Writer's Café is more than just a coffee shop—it's a haven for dreamers, thinkers, and storytellers. Since our inception, we've been dedicated to creating a space where creativity flows as freely as our carefully crafted beverages.</p>
+                
+                <p>Our minimalist black and white aesthetic creates the perfect backdrop for concentration and inspiration. Whether you're penning your next novel, studying for exams, or simply seeking a moment of tranquility with a perfect cup of coffee, Writer's Café provides the ideal environment for your pursuits.</p>
+                
+                <p>We believe that every great story begins with a single sip, every brilliant idea emerges from a quiet corner, and every meaningful conversation starts with the perfect ambiance.</p>
+            </div>
+            <div class="about-image"></div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section menu fade-in">
+        <h2>Our Menu</h2>
+        <div class="menu-intro">
+            <p>Carefully curated beverages and bites to fuel your creativity and satisfy your cravings</p>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <h3>Coffee & Beverages</h3>
+                <div class="menu-item">
+                    <span class="item-name">Classic Espresso</span>
+                    <span class="item-price">₹95</span>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Signature Cappuccino</span>
+                    <span class="item-price">₹105</span>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Writer's Special Latte</span>
+                    <span class="item-price">₹180</span>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Nitro Cold Brew</span>
+                    <span class="item-price">₹160</span>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Artisan Masala Chai</span>
+                    <span class="item-price">₹100</span>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Matcha Latte</span>
+                    <span class="item-price">₹170</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <h3>Light Bites</h3>
+                <div class="menu-item">
+                    <span class="item-name">Buttery Croissant</span>
+                    <span class="item-price">₹140</span>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Gourmet Sandwich Club</span>
+                    <span class="item-price">₹220</span>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Spinach Quiche Slice</span>
+                    <span class="item-price">₹180</span>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Avocado Toast</span>
+                    <span class="item-price">₹200</span>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Writer's Garden Salad</span>
+                    <span class="item-price">₹250</span>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Artisan Bagel</span>
+                    <span class="item-price">₹160</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <h3>Sweet Indulgences</h3>
+                <div class="menu-item">
+                    <span class="item-name">Dark Chocolate Brownie</span>
+                    <span class="item-price">₹160</span>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">NY Style Cheesecake</span>
+                    <span class="item-price">₹200</span>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Classic Tiramisu</span>
+                    <span class="item-price">₹220</span>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Artisan Cookie Jar</span>
+                    <span class="item-price">₹80</span>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Literary Lemon Tart</span>
+                    <span class="item-price">₹180</span>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Seasonal Fruit Tart</span>
+                    <span class="item-price">₹190</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section gallery fade-in">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="download.jpg" alt="Cozy Corner">
+                <div class="gallery-overlay">
+                    <span>Cozy Reading Corner</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Screenshot 2025-09-20 200610.png" alt="Coffee Art">
+                <div class="gallery-overlay">
+                    <span>Coffee</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images.jpg" alt="Workspace">
+                <div class="gallery-overlay">
+                    <span>Perfect Workspace</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="download (1).jpg" alt="Fresh Pastries">
+                <div class="gallery-overlay">
+                    <span>Fresh Pastries</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Interior Design">
+                <div class="gallery-overlay">
+                    <span>Minimalist Interior</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images (1).jpg" alt="Evening Ambiance">
+                <div class="gallery-overlay">
+                    <span>Evening Ambiance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="section location fade-in">
+        <h2>Visit Us</h2>
+        <div class="location-content">
+            <div class="location-info">
+                <h3>Find Our Literary Haven</h3>
+                <div class="contact-item">
+                    <strong>📍 Location:</strong> Chennai, Tamil Nadu, India
+                </div>
+                <div class="contact-item">
+                    <strong>⏰ Hours:</strong> Mon-Sun, 9:00 AM - 11:59 PM
+                </div>
+                <div class="contact-item">
+                    <strong>📞 Phone:</strong> 044 48611604
+                </div>
+                <div class="contact-item">
+                    <strong>✉️ Email:</strong> hello@writerscafe.in
+                </div>
+                <div class="contact-item">
+                    <strong>📶 WiFi:</strong> Free High-Speed Internet
+                </div>
+                <div class="contact-item">
+                    <strong>🅿️ Parking:</strong> Available Nearby
+                </div>
+                <div class="contact-item">
+                    <strong>💳 Payment:</strong> Cash & Card Accepted
+                </div>
+            </div>
+            <div class="map-container">
+                <div class="map-overlay">
+                    <div>
+                        📍 Click to View on Google Maps<br>
+                        <small>Located in the Heart of Chennai</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="logo.jpg" alt="Writer's Café Logo">
+                <div class="footer-logo-text">
+                    <h3>Writer's Café</h3>
+                    <p>Chennai</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/writerscafein/?hl=en">Instagram</a>
+                <a href="https://api.whatsapp.com/send?phone=917904784325">Whatsapp</a>
+               
+            </div>
+            <p class="footer-text">&copy; 2025 Writer's Café Chennai. All rights reserved.</p>
+            <p class="footer-text">Where every cup tells a story, and every story begins with a dream.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add click handler for map
+        document.querySelector('.map-container').addEventListener('click', () => {
+            window.open('https://maps.app.goo.gl/YAc2QHXZU4mdyMt58', '_blank');
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            hero.style.transform = `translateY(${rate}px)`;
+        });
+
+        // Mobile menu toggle (for future enhancement)
+        const createMobileMenu = () => {
+            if (window.innerWidth <= 768) {
+                // Mobile menu functionality can be added here
+                console.log('Mobile view detected');
+            }
+        };
+
+        window.addEventListener('resize', createMobileMenu);
+        createMobileMenu();
+
+        // Lazy loading for images
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        lazyImages.forEach(img => imageObserver.observe(img));
+
+        // Add smooth reveal animations for menu items
+        const menuCards = document.querySelectorAll('.menu-card');
+        menuCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.2}s`;
+        });
+
+        // Gallery item click handlers
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                // Future: Open lightbox or full-size image viewer
+                console.log('Gallery item clicked');
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // Add typing effect to hero title
+        const heroTitle = document.querySelector('.hero h1');
+        const titleText = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < titleText.length) {
+                heroTitle.textContent += titleText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        
+        // Start typing effect after a short delay
+        setTimeout(typeWriter, 500);
+
+        // Add scroll progress indicator
+        const createScrollProgress = () => {
+            const progressBar = document.createElement('div');
+            progressBar.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 3px;
+                background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.5));
+                z-index: 9999;
+                transition: width 0.1s ease;
+            `;
+            document.body.appendChild(progressBar);
+
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                progressBar.style.width = scrolled + '%';
+            });
+        };
+
+        createScrollProgress();
+
+        // Add smooth reveal for menu items on scroll
+        const menuObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.menu-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            menuObserver.observe(card);
+        });
+
+        // Add hover effects for social links
+        document.querySelectorAll('.social-links a').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Add click-to-copy functionality for contact info
+        document.querySelectorAll('.contact-item').forEach(item => {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', function() {
+                const text = this.textContent.replace(/^[^\w\s]+/, '').trim();
+                navigator.clipboard.writeText(text).then(() => {
+                    // Show temporary feedback
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<strong>✓ Copied!</strong>';
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                    }, 1000);
+                });
+            });
+        });
+
+        // Add keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                // Close any open modals or overlays
+                console.log('Escape key pressed');
+            }
+        });
+
+        // Performance optimization: Debounce scroll events
+        let scrollTimeout;
+        const debouncedScroll = () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                // Scroll-based animations here
+            }, 10);
+        };
+
+        window.addEventListener('scroll', debouncedScroll);
+
+        // Add accessibility improvements
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Initialize all animations
+        const initAnimations = () => {
+            // Add staggered animation to gallery items
+            document.querySelectorAll('.gallery-item').forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
+        };
+
+        initAnimations();
+
+        console.log('Writer\'s Café website loaded successfully! ☕📚');
+    </script>
+</body>
+</html>
